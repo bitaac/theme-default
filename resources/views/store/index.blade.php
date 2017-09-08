@@ -7,7 +7,9 @@
         </div>
 
         <div class="panel-body">
-            You currently have <span class="label label-success">{{ $account->bitaac->points }}</span> points.<br><br>
+            @if (Auth::check())
+                You currently have <span class="label label-success">{{ $account->bitaac->points }}</span> points.<br><br>
+            @endif
 
             <table class="table">
                 @forelse ($products as $product)
