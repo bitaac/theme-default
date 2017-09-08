@@ -1,0 +1,23 @@
+{
+    "name": "bitaac/theme-default",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kristoffer Eklund",
+            "email": "kristoffereklund1@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Bitaac\\ThemeDefault\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bitaac\\ThemeDefault\\ThemeDefaultServiceProvider"
+            ]
+        }
+    }
+}
