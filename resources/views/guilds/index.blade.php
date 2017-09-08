@@ -33,7 +33,7 @@
                         </td>
 
                         <td>
-                            <a href="{{ $guild->link() }}" class="btn btn-primary">View</a>
+                            <a href="{{ route('guild', $guild) }}" class="btn btn-primary">View</a>
                         </td>
                     </tr>
                 @empty

@@ -94,7 +94,6 @@
                     <th width="70%">Name</th>
                     <th>Gender</th>
                     <th>Status</th>
-                    {{-- <th></th> --}}
                 </tr>
 
                 @forelse($account->characters as $character)
@@ -105,9 +104,7 @@
                             <em class="desc">(Level {{ $character->level . ' ' . $character->vocation->name }})</em>
                             @if ($character->hasPendingDeletion())
                                 <font color="red">DELETED</font>
-                                <a href="{{ url_e('/account/undelete/:name', ['name' => $character->name]) }}">
-                                    (cancel)
-                                </a>
+                                <a href="{{ route('account.character.undelete', $character) }}">(cancel)</a>
                             @endif
                         </td>
                         <td>{{ gender($character->sex) }}</td>

@@ -35,9 +35,7 @@
                                     $latest = $board->latest();
                                 ?>
 
-                                <a href="{{ url_e('/forum/:board/:title', ['board' => $board->title, 'title' => $latest->title]) }}">
-                                    {{ $latest->title }}
-                                </a>
+                                <a href="{{ route('forum.thread', [$board, $latest]) }}">{{ $latest->title }}</a>
 
                                 <br>
 
