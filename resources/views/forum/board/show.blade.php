@@ -32,7 +32,7 @@
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                             @endif
 
-                            <a href="{{ url_e('/forum/:board/:title', ['board' => $board->title, 'title' => $thread->title]) }}">{{ $thread->title }}</a>
+                            <a href="{{ route('forum.thread', [$board, $thread]) }}">{{ $thread->title }}</a>
 
                             <br>
 
@@ -53,9 +53,7 @@
                             @if ($latest = $thread->replies->last())
                                 <small>
                                     by
-                                    <a href="{{ url_e('/forum/:board/:title#2', ['board' => $board->title, 'title' => $thread->title]) }}">
-                                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                    </a>
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
 
                                     <a href="{{ route('character', $latest->player) }}">{{ $latest->player->name }}</a>,
 

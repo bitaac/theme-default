@@ -43,7 +43,7 @@
                 </div>
 
                 <input type="submit" value="Create" class="btn btn-primary">
-                <a class="btn" href="{{ url('/account') }}">Back</a>
+                <a class="btn" href="{{ route('account') }}">Back</a>
             </form>
         </div>
     </div>

@@ -4,7 +4,7 @@
             <a name="{{ $i }}"></a>
         @endif
 
-        <a href="{{ url_e('/character/:name', ['name' => $post->player->name]) }}">{{ $post->player->name }}</a>
+        <a href="{{ route('character', $post->player) }}">{{ $post->player->name }}</a>
 
         <br><br>
 

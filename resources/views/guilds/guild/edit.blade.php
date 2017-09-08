@@ -14,7 +14,7 @@
                     <label>
                         @if ($guild->bitaac->logo)
                             Logo:
-                            <small>(<a href="{{ URL::current() . '/deletelogo' }}">Remove</a>)</small>:
+                            <small>(<a href="{{ route('guild.edit.deletelogo', $guild) }}">Remove</a>)</small>:
                         @else
                             Logo:
                         @endif

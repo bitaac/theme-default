@@ -44,11 +44,11 @@
             {{-- Edit & disband guild buttons (leaders & owners only). --}}
             @if ($auth && $hasLeader)
                 <p>
-                    <a href="{{ URL::current() . '/edit' }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('guild.edit', $guild) }}" class="btn btn-primary">Edit</a>
 
                     @if ($hasOwner)
                         <td align="right">
-                            <a href="{{ URL::current() . '/disband' }}" class="btn btn-primary">Disband</a>
+                            <a href="{{ route('guild.disband', $guild) }}" class="btn btn-primary">Disband</a>
                         </td>
                     @endif
                 </p>
@@ -151,16 +151,16 @@
             @if ($auth and $hasMember or $hasInvite)
                 {{-- Join guild button (invitees only). --}}
                 @if ($hasInvite)
-                    <a href="{{ URL::current() . '/join' }}" class="btn btn-primary">Join Guild</a>
+                    <a href="{{ route('guild.join', $guild) }}" class="btn btn-primary">Join Guild</a>
                 @endif
 
                 {{-- Invite member button (vice leaders, leaders and owners only). --}}
                 @if ($hasViceLeader or $hasLeader)
-                    <a href="{{ URL::current() . '/invite' }}" class="btn btn-primary">Invite Character</a>
+                    <a href="{{ route('guild.invite', $guild) }}" class="btn btn-primary">Invite Character</a>
                 @endif
 
                 @if ($hasViceLeader or $hasLeader and $guild->getInvites->count() > 0)
-                    <a href="{{ URL::current() . '/cancel' }}" class="btn btn-primary">Cancel Invite</a>
+                    <a href="{{ route('guild.cancel', $guild) }}" class="btn btn-primary">Cancel Invite</a>
                 @endif
             @endif
         </div>
