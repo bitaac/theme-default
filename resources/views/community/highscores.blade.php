@@ -64,9 +64,9 @@
                 {{-- Characters. --}}
                 @forelse ($pagination = $highscore->getHighscore() as $key => $character)
                     <tr>
-                        <td>{{{ (++$key) + (($pagination->currentPage() - 1) * $pagination->perPage()) }}}</td>
+                        <td>{{ (++$key) + (($pagination->currentPage() - 1) * $pagination->perPage()) }}</td>
                         <td>
-                            <a href="{{ route('character', $character) }}">{{ $character->name }}</a>
+                            <a href="{{ route('character', str_slug($character->name)) }}">{{ $character->name }}</a>
                             <em style="font-size: 90%; opacity: .5;">(Level {{ $character->level . ' ' . vocation($highscore->vocation)}})</em>
                         </td>
                         <td>{{ $character->value }}</td>
