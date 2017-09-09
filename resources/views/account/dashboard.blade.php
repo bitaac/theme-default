@@ -1,7 +1,7 @@
 @extends('bitaac::layouts.app')
 
 @section('content')
-    @if ($account->hasPendingEmail())
+    @if ($changeEmailEnabled = config('bitaac.account.change-email-enabled', true) and $account->hasPendingEmail())
         <div class="alert alert-warning">
             <p>A request has been submitted to change the email address of this account to {{ $account->getPendingEmail() }}. <br> The actual change will take place after {{ $account->getPendingEmailTime() }}. <br> Please cancel the request if you do not want your email address to be changed! <a href="#">Click here to cancel</a></p>
         </div>
@@ -66,8 +66,12 @@
             <table>
                 <tr>
                     <td width="100%">
-                        <a href="{{ route('account.email') }}" class="btn btn-primary">Change Email</a>
+                        @if ($changeEmailEnabled)
+                            <a href="{{ route('account.email') }}" class="btn btn-primary">Change Email</a>
+                        @endif
+
                         <a href="{{ route('account.password') }}" class="btn btn-primary">Change Password</a>
+
                         @if (config('bitaac.account.two-factor'))
                             <a href="{{ route('account.authentication') }}" class="btn btn-primary">Two-Factor Authentication</a>
                         @endif
@@ -122,7 +126,10 @@
             </table>
 
             <a href="{{ route('account.character') }}" class="btn btn-primary">Create Character</a>
-            <a href="{{ route('account.character.delete') }}" class="btn btn-danger">Delete Character</a>
+
+            @if (config('bitaac.account.delete-character-enabled', true))
+                <a href="{{ route('account.character.delete') }}" class="btn btn-danger">Delete Character</a>
+            @endif
         </div>
     </div>
 @endsection
