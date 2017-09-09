@@ -8,13 +8,36 @@
 
         <div class="panel-body">
             <table class="table">
-                {{-- Characters. --}}
                 @forelse ($deaths as $death)
                     <tr>
                         <td width="22%">{{ date('M d Y, H:i:s T', (int) $death->time) }}</td>
 
                         <td>
-                            <a href="{{ route('character', $death->player) }}">{{ $death->player->name }}</a> died on level {{ $death->level }} by {{ $death->killed_by }} and {{ $death->mostdamage_by }}.
+                            <a href="{{ route('character', $death->player) }}">
+                                {{ $death->player->name }}
+                            </a>
+
+                            died on level {{ $death->level }} by
+
+                            @if ($death->killed_by == $death->mostdamage_by)
+                                @if ($death->is_player)
+                                    <a href="{{ route('character', $death->killer) }}">{{ $death->killer->name }}</a>.
+                                @else
+                                    a {{ $death->killed_by }}.
+                                @endif
+                            @else
+                                @if ($death->is_player)
+                                    <a href="{{ route('character', $death->killer) }}">{{ $death->killer->name }}</a>
+                                @else
+                                    a {{ $death->killed_by }}
+                                @endif
+
+                                @if ($death->mostdamage_is_player)
+                                    and <a href="{{ route('character', $death->mostDamagePlayer) }}">{{ $death->mostDamagePlayer->name }}</a>.
+                                @else
+                                    and a {{ $death->mostdamage_by }}.
+                                @endif
+                            @endif
                         </td>
                     </tr>
                 @empty
