@@ -40,9 +40,6 @@
                                 <li><a href="{{ route('character.search') }}">Characters</a></li>
                                 <li><a href="{{ route('highscores') }}">Highscores</a></li>
                                 <li><a href="{{ route('guilds') }}">Guilds</a></li>
-                                @if (config('bitaac.guild.wars-enabled', true))
-                                <li><a href="{{ route('guildwars') }}">Guilds Wars</a></li>
-                                @endif
                                 <li><a href="{{ route('deaths') }}">Latest Deaths</a></li>
                                 <li><a href="{{ route('forum') }}">Forum</a></li>
                                 <li><a href="{{ route('faq') }}">Faq</a></li>
