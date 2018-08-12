@@ -15,7 +15,7 @@
                     <input type="password" name="account" class="form-control">
                 </div>
 
-                @if (Bitaac::twfa()->enabled())
+                @if (Bitaac::twofa()->enabled())
                     <div class="form-group">
                         <label>Two factor token:</label>
                         <input type="text" name="2fa" class="form-control">

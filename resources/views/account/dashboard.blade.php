@@ -49,7 +49,7 @@
                     </td>
                 </tr>
 
-                @if (Bitaac::twfa()->enabled())
+                @if (Bitaac::twofa()->enabled())
                     <tr>
                         <th>Two-Factor Authentication:</th>
                         <td>
@@ -72,7 +72,7 @@
 
                         <a href="{{ route('account.password') }}" class="btn btn-primary">Change Password</a>
 
-                        @if (Bitaac::twfa()->enabled())
+                        @if (Bitaac::twofa()->enabled())
                             <a href="{{ route('account.authentication') }}" class="btn btn-primary">Two-Factor Authentication</a>
                         @endif
                     </td>
