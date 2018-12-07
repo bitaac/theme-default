@@ -20,7 +20,7 @@
 
                 <tr>
                     <th width="20%">Account:</th>
-                    <td>{{ $account->name }}</td>
+                    <td>{{ $account->getName() }}</td>
                 </tr>
 
                 <tr>
@@ -49,7 +49,7 @@
                     </td>
                 </tr>
 
-                @if (config('bitaac.account.two-factor'))
+                @if (Bitaac::twofa()->enabled())
                     <tr>
                         <th>Two-Factor Authentication:</th>
                         <td>
@@ -72,7 +72,7 @@
 
                         <a href="{{ route('account.password') }}" class="btn btn-primary">Change Password</a>
 
-                        @if (config('bitaac.account.two-factor'))
+                        @if (Bitaac::twofa()->enabled())
                             <a href="{{ route('account.authentication') }}" class="btn btn-primary">Two-Factor Authentication</a>
                         @endif
                     </td>
